@@ -1,5 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(class='container')
+    div(class='indexDiv')
+      h1(class='display-4')= title
+      p(class='lead') Welcome to #[em Music Inventory]
+
+      h3 Database contains the following:
+
+      ul(class='list-group')
+        li(class='list-group-item') #[strong Instruments:] !{instrument_count}
+        li(class='list-group-item') #[strong Categories:] !{category_count}
+        li(class='list-group-item') #[strong Brands:] !{brand_count}
