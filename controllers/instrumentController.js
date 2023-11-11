@@ -5,6 +5,16 @@ const { body, validationResult } = require("express-validator");
 const asyncHandler = require("express-async-handler");
 const multer = require("multer"); //Upload images
 
+// Set up multer storage and file name
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, "public/images/");
+    },
+    filename: function (req, file, cb) {
+      cb(null, Date.now() + "-" + file.originalname);
+    },
+});
+
 // Create multer upload instance
 const upload = multer({ storage: storage });
 

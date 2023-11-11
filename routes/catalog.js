@@ -67,9 +67,6 @@ router.get("/categories", category_controller.category_list);
 
 /// BRAND ROUTES ///
 
-// Get catalog home page
-router.get("/", brand_controller.index);
-
 // GET request for creating a brand.
 router.get("/brand/create", brand_controller.brand_create_get);
 

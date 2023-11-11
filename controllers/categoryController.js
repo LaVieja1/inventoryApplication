@@ -1,6 +1,6 @@
 const Instrument = require("../models/instrument");
 const Category = require("../models/category");
-const { body, validationResult } = require("express-async-handler");
+const { body, validationResult } = require("express-validator");
 const asyncHandler = require("express-async-handler");
 
 // Display list of all categories
