@@ -3,6 +3,21 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
+require('dotenv').config();
+//console.log(process.env);
+
+mongoose.set("strictQuery", false);
+
+async function main() {
+  const mongoURL = process.env.DB_URL;
+
+  await mongoose.connect(mongoURL);
+
+  console.log('Conectado a MongoDB Atlas');
+};
+
+main().catch((err) => console.log(err));
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
