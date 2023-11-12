@@ -1,0 +1,39 @@
+extends layout 
+
+block content
+    h1= title 
+    hr
+
+    form(action="", enctype="multipart/form-data", method="POST", class="mb-5")
+        div(class="form-group")
+            label(for="name") Name:
+            input(type="text", name="name", required, class="form-control", value=(instrument && instrument.name) ? instrument.name : '')
+        div(class="form-group")
+            label(for="description") Description:
+            textarea(name="description", rows="3", class='form-control') !{(instrument && instrument.description) ? instrument.description : ''}
+        div(class="form-group")
+            label(for="image") Image:
+            input(type="file", name="image", id="image", class="form-control-file")
+        div(class="form-group")
+            label(for="category") Category:
+            select(name="category", required, class='form-control')
+                each category in categories
+                    option(value=category._id selected=(instrument && instrument.category && instrument.category.includes(category._id.toString())) ? 'selected' : '')= category.name
+        div(class="form-group")
+            label(for="brand") Brand:
+            select(name="brand", required, class='form-control')
+                each brand in brands
+                    option(value=brand._id selected=(instrument && instrument.brand && instrument.brand.includes(brand._id.toString())) ? 'selected' : '')= brand.name
+        div(class="form-group")
+            label(for="price") Price: 
+            input(type="number", name="price", min='0', step='0.01', class='form-group', value=(instrument && instrument.price) ? instrument.price: '')
+        div(class="form-group")
+            label(for="stock") Stock: 
+            input(type="number", name="stock", min='0', class='form-control', value=(instrument && instrument.stock) ? instrument.stock : '')
+        button(type="submit", class='btn btn-primary') Create
+
+    h2 Existing Instruments: 
+
+    ul(class='list-group mb-5')
+        each instrument in instruments
+            li(class='list-group-item') #[a(href="!{instrument.url}")=instrument.name]
