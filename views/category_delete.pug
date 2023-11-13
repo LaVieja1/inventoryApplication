@@ -1,0 +1,24 @@
+extends layout 
+
+block content 
+
+    h1 Delete Category: #{category.name}
+
+    if category_instruments.length > 0
+        p #[strong Delete the following instruments before attempting to delete this category.]
+        div(style="margin-left: 20px; margin-top: 20px")
+            h4 Instruments  
+            hr
+            ul 
+                each instrument in category_instruments 
+                    li
+                        a(href=instrument.url) #[h3= instrument.name]
+                        h3= instrument.description
+                    hr
+    else 
+        p Do you really want to delete this Category?
+        form(action="" method="POST")
+            div(class="form-group")
+                input(type="hidden", name="id", id="id", class="form-control", required="true", value=category._id)
+            button(type="submit", class="btn btn-primary") Delete  
+            a(href="/catalog/category/#{category._id}", class="btn btn-secondary") Cancel 

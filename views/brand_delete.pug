@@ -1,0 +1,24 @@
+extends layout 
+
+block content 
+
+    h1 Delete Brand: #{brand.name}
+
+    if brand_instruments.length > 0
+        p #[strong Delete the following instruments before attempting to delete this brand.]
+        div(style="margin-left: 20px; margin-top: 20px")
+            h4 Instruments  
+            hr
+            ul 
+                each instrument in brand_instruments 
+                    li
+                        a(href=instrument.url) #[h3= instrument.name]
+                        h3= instrument.description
+                    hr
+    else 
+        p Do you really want to delete this Brand?
+        form(action="" method="POST")
+            div(class="form-group")
+                input(type="hidden", name="id", id="id", class="form-control", required="true", value=brand._id)
+            button(type="submit", class="btn btn-primary") Delete  
+            a(href="/catalog/brand/#{brand._id}", class="btn btn-secondary") Cancel 
