@@ -10,9 +10,9 @@ require('dotenv').config();
 mongoose.set("strictQuery", false);
 
 async function main() {
-  const mongoURL = process.env.DB_URL;
+  const mongoURL = process.env.DB_URL || "mongodb+srv://canosantiago404:7XNi6Xy4XJLJgvA8@cluster0.xqfopbl.mongodb.net/inventory?retryWrites=true&w=majority";
 
-  await mongoose.connect(mongoURL || "mongodb+srv://canosantiago404:7XNi6Xy4XJLJgvA8@cluster0.xqfopbl.mongodb.net/inventory?retryWrites=true&w=majority");
+  await mongoose.connect(mongoURL);
 
   console.log('Conectado a MongoDB Atlas');
 };
