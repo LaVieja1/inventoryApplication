@@ -1,0 +1,21 @@
+extends layout 
+
+block content 
+    
+    h1= title 
+    hr
+    br
+
+    form(action="", method="POST")
+        div(class="form-group")
+            label(for="name") Category Name: 
+            input(type="text", name="name", id="name", class="form-control", placeholder="Enter category name", value=(typeof category === 'undefined' ? '' : category.name))
+        div(class="form-group")
+            label(for="description") Category Description: 
+            textarea(name="description", id="description", class="form-control", placeholder="Enter category description", value=(typeof category === 'undefined' ? '' : category.description))
+        button(type="submit", class="btn btn-primary") Submit 
+
+    if typeof errors!== 'undefined'
+        ul 
+            each error in errors 
+                li= error.msg

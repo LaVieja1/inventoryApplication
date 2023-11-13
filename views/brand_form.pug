@@ -1,0 +1,24 @@
+extends layout 
+
+block content 
+    
+    h1= title 
+    hr
+    br
+
+    form(action="", method="POST")
+        div(class="form-group")
+            label(for="name") Brand Name: 
+            input(type="text", name="name", id="name", class="form-control", placeholder="Enter brand name", value=(typeof brand === 'undefined' ? '' : brand.name))
+        div(class="form-group")
+            label(for="description") Brand Description: 
+            textarea(name="description", id="description", class="form-control", placeholder="Enter brand description", value=(typeof brand === 'undefined' ? '' : brand.description))
+        div(class="form-group")
+            label(for="year") Brand Description: 
+            input(type="number", name="year", id="year", class="form-control", placeholder="Enter brand year", value=(typeof brand === 'undefined' ? '' : brand.year))
+        button(type="submit", class="btn btn-primary") Submit 
+
+    if typeof errors!== 'undefined'
+        ul 
+            each error in errors 
+                li= error.msg
