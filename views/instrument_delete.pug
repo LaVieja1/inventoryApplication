@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+    h1= title 
+    p Are you sure you want to delete this instrument?
+    p #[strong Name:] #{instrument.name}
+    p #[strong Description:] #{instrument.description}
+    p #[strong Category:] #{instrument.category.name}
+    p #[strong Brand:] #{instrument.brand.name}
+    p #[strong Price:] #{instrument.price}
+    p #[strong Stock:] #{instrument.stock}
+
+    form(action="", method="POST")
+        input(type="submit", value="Delete", class="btn btn-danger")
+        a(href="/catalog/instrument/"+instrument._id, class="btn btn-secondary") Cancel  
