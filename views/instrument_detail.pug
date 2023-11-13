@@ -1,0 +1,20 @@
+extends layout 
+
+block content 
+    ul 
+        li 
+            h2= instrument.name 
+            img(class="detail-image", src="/images/#{instrument.image}", alt="Instrument Image")
+            br
+            br
+            p= instrument.description 
+            p Category: #{categoryName}
+            p Brand: #{brandName}
+            p Price: $#{instrument.price}
+            p Stock: #{instrument.stock}
+    
+    hr
+    p 
+        a(href=instrument.url+'/delete') Delete Instrument 
+    p 
+        a(href=instrument.url+'/update') Update Instrument 

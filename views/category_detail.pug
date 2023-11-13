@@ -1,0 +1,22 @@
+extends layout 
+
+block content 
+    h1 Category: #{category.name}
+
+    div(style="margin-left: 20px; margin-top: 20px")
+        h4 Instruments
+
+        dl 
+            if category_instruments.length > 0
+                each instrument in category_instruments
+                    dt #[a(href=instrument.url) #{instrument.name}]
+                    dd= instrument.description 
+            else 
+                p This category has no instruments 
+        
+    
+    hr
+    p 
+        a(href=category.url+'/delete') Delete Category 
+    p 
+        a(href=category.url+'/update') Update Category 

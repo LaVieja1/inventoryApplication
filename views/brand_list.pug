@@ -9,7 +9,7 @@ block content
         if brand_list.length > 0
             each brand in brand_list 
                 li 
-                    a(href="#{brand.url}")= brand.name
+                    a(href=brand.url)= brand.name
                     br
                     br
                     p #[strong Description:] #{brand.description}

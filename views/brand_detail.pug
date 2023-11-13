@@ -1,0 +1,22 @@
+extends layout 
+
+block content 
+    h1 Brand: #{brand.name}
+
+    div(style="margin-left: 20px; margin-top: 20px")
+        h4 Instruments
+
+        dl 
+            if brand_instruments.length > 0
+                each instrument in brand_instruments
+                    dt #[a(href=instrument.url) #{instrument.name}]
+                    dd= instrument.description 
+            else 
+                p This brand has no instruments 
+        
+    
+    hr
+    p 
+        a(href=brand.url+'/delete') Delete Brand 
+    p 
+        a(href=brand.url+'/update') Update Brand 
