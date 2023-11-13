@@ -1,0 +1,19 @@
+extends layout 
+
+block content 
+    h1= title 
+    hr
+    br
+
+    ul 
+        if brand_list.length > 0
+            each brand in brand_list 
+                li 
+                    a(href="#{brand.url}")= brand.name
+                    br
+                    br
+                    p #[strong Description:] #{brand.description}
+                
+            hr
+        else
+            li There are no brands.

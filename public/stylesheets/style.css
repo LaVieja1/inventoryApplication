@@ -1,0 +1,122 @@
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    height: 100%;
+}
+  
+a {
+    color: #00b7ff;
+}
+  
+.dynamicContainer {
+    padding: 20px;
+}
+  
+li {
+    list-style-type: none;
+}
+  
+/* public/stylesheets/about.css */
+  
+.about-content {
+    margin-left: 25% !important;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+  
+h1 {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+}
+  
+p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+}
+  
+ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+  
+li {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.3;
+}
+  
+/* Set footer styles */
+footer {
+    padding: 25px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    height: 20px;
+}
+  
+footer img {
+    height: 30px;
+    border-radius: 10em;
+}
+  
+footer p {
+    font-size: 1.2rem;
+    color: white;
+}
+  
+.list-image {
+    height: 50px;
+    border-radius: 10px;
+}
+  
+.list-image:hover {
+    transform: scale(1.2);
+    transition: 0.7s;
+}
+  
+.detail-image {
+    height: 200px;
+    border-radius: 5px;
+    max-width: 100%;
+}
+  
+.nav-logo {
+    height: 50px;
+    border-radius: 5em;
+}
+  
+.nav-link {
+    font-size: 17px;
+    margin-top: -8px;
+}
+  
+.instrument-list {
+    display: grid;
+}
+  
+.instrument-list a {
+    font-size: 17px;
+}
+  
+/* Animate logo */
+  
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+  
+.nav-logo {
+    animation: pulse 3s ease-in-out infinite;
+}

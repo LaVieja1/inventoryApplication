@@ -9,8 +9,7 @@ block content
             each instrument in instrument_list 
                 li(class='instrument-list')
                     a(href="!{instrument.url}")= instrument.name
-                    a(href="!{instrument.url}")
-                    img(class='list-image', src="/images/!{instrument.image}", alt="Instrument Image") 
+                    a(href="!{instrument.url}") #[img(class='list-image', src="/images/!{instrument.image}", alt="Instrument Image")]
                 hr
         else 
             li There are no instruments.

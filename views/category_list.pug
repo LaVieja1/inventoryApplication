@@ -1,0 +1,19 @@
+extends layout 
+
+block content 
+    h1= title 
+    hr
+    br
+
+    ul 
+        if category_list.length > 0
+            each category in category_list 
+                li 
+                    a(href="#{category.url}")= category.name
+                    br
+                    br
+                    p #[strong Description:] #{category.description}
+                
+            hr
+        else
+            li There are no categories.
