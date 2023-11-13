@@ -12,6 +12,9 @@ block content
             label(for="description") Description:
             textarea(name="description", rows="3", class='form-control') !{(instrument && instrument.description) ? instrument.description : ''}
         div(class="form-group")
+            label(for="image") Image:
+            input(type="file", name="image", id="image", class="form-control-file")
+        div(class="form-group")
             label(for="category") Category:
             select(name="category", required, class='form-control')
                 each category in categories

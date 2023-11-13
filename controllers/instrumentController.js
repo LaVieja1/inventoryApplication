@@ -276,7 +276,7 @@ exports.instrument_update_get = asyncHandler(async (req, res, next) => {
   }
 
   res.render("instrument_form_update", {
-    title: "Create Instrument",
+    title: "Update Instrument",
     instrument: instrument,
     categories: allCategories,
     brands: allBrands,
@@ -356,14 +356,14 @@ exports.instrument_update_post = [
   
         // Mark our selected categories as selected
         for (const category of allCategories) {
-          if (instrument.category.indexOf(category._id) > -1) {
+          if (allCategories.indexOf(category._id) > -1) {
             category.selected = "true";
           }
         }
 
         // Mark our selected brand as selected
         for (const brand of allBrands) {
-          if (instrument.brand.indexOf(brand._id) > -1) {
+          if (allBrands.indexOf(brand._id) > -1) {
             brand.selected = "true";
           }
         }
@@ -372,7 +372,7 @@ exports.instrument_update_post = [
           title: "Update Instrument",
           instruments: allInstruments,
           categories: allCategories,
-          brand: allBrands,
+          brands: allBrands,
           instrument: instrument,
           errors: errors.array(),
         });
