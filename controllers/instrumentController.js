@@ -219,6 +219,7 @@ exports.instrument_delete_post = asyncHandler(async (req, res, next) => {
     }
 });
 
+/*
 // Display instrument update from GET
 exports.instrument_update_get = asyncHandler(async (req, res, next) => {
     // Get instrument, categories, brands and existing instruments
@@ -238,20 +239,16 @@ exports.instrument_update_get = asyncHandler(async (req, res, next) => {
   
     // Mark our selected categories as checked.
     for (const category of allCategories) {
-      for (const instrument_g of instrument.category) {
-        if (category._id.toString() === instrument_g._id.toString()) {
+        if (category._id.toString() === category._id.toString()) {
           category.selected = "true";
         }
-      }
     }
 
     // Mark our selected brands as checked.
     for (const brand of allBrands) {
-      for (const instrument_g of instrument.brand) {
-        if (brand._id.toString() === instrument_g._id.toString()) {
+        if (brand._id.toString() === brand._id.toString()) {
           brand.selected = "true";
         }
-      }
     }
   
     res.render("instrument_form_update", {
@@ -262,6 +259,31 @@ exports.instrument_update_get = asyncHandler(async (req, res, next) => {
       instruments: existingInstruments,
     });
 });
+*/
+
+
+// Display instrument update from GET
+exports.instrument_update_get = asyncHandler(async (req, res, next) => {
+  const instrument = await Instrument.findById(req.params.id).exec();
+  const allCategories = await Category.find().exec();
+  const allBrands = await Brand.find().exec();
+  const allInstruments = await Instrument.find().exec();
+
+  if (instrument === null) {
+    const err = new Error("Instrument not found");
+    err.status = 404;
+    return next(err);
+  }
+
+  res.render("instrument_form_update", {
+    title: "Create Instrument",
+    instrument: instrument,
+    categories: allCategories,
+    brands: allBrands,
+    instruments: allInstruments,
+  });
+});
+
 
 // Handle instrument update on POST
 exports.instrument_update_post = [
